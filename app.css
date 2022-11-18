@@ -1,0 +1,97 @@
+body {
+    
+    background-image: url("https://w0.peakpx.com/wallpaper/103/204/HD-wallpaper-doge-collage-dog-meme-memes-puppies-puppy.jpg");
+   background-size: cover;
+   height: 100%;
+   
+    
+}
+
+.meme {    
+    height: 500px;
+    border: 1px solid  black;
+    position: relative; 
+    display: inline-block;
+    bottom: 450px; left: 50%; right: 0;      
+    margin: 18px;
+    
+}
+
+.img  {     
+    height: 500px;    
+}
+
+
+.toptext {
+    position: absolute;
+    font-size: 23px;
+    bottom: 400px; left: 0; right: 0;
+    margin: auto;
+    text-align: center;
+    font-family: 'Monofett', cursive;
+    font-family: 'Rubik Mono One', sans-serif;
+   overflow-wrap: break-word;
+    
+
+}
+
+.bottomtext  {
+    position: absolute;
+    font-size: 23px;
+    top: 400px; left: 0; right: 0;
+    margin: auto;
+    text-align: center;
+    font-family: 'Monofett', cursive;
+    font-family: 'Rubik Mono One', sans-serif;
+    
+    overflow-wrap: break-word;
+}
+
+h1 {
+    background-image: url("https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.webp?cid=ecf05e47g131t8xt25fmkdpzz4vwsvg95tqlrslpc5cjxqdx&rid=giphy.webp&ct=g");
+    padding: 20px;
+    color:rgb(241, 219, 228);
+    font-size: 6rem;
+    text-align: center;
+    font-family: 'Monofett', cursive;
+}
+
+#generator {
+    font-size: 2.5rem;
+   
+    font-family: 'Monofett', cursive;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-family: 'Sarpanch', sans-serif;
+
+    color: rgb(110, 105, 107);
+    
+    
+    
+}
+
+.input-style {
+    margin: 30px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: 'Monofett', cursive;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-family: 'Sarpanch', sans-serif;
+    
+}
+
+
+.button-style {   
+        background-color: #fa8e12; /* Green */
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        
+      }
+
+
+
