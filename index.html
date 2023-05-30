@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app.css"> 
-      
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monofett&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monofett&display=swap"
+      rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monofett&family=Rubik+Mono+One&family=Sarpanch:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monofett&family=Rubik+Mono+One&display=swap"
+      rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://w0.peakpx.com/wallpaper/746/806/HD-wallpaper-memes-collage-no-2-cat-awesome-pandabomb-dog-meme.jpg">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monofett&family=Rubik+Mono+One&family=Sarpanch:wght@900&display=swap"
+      rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://w0.peakpx.com/wallpaper/746/806/HD-wallpaper-memes-collage-no-2-cat-awesome-pandabomb-dog-meme.jpg" />
+
     <title>Meme Gen</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Make a meme bruh</h1>
-    <form type="submit" id="generator">     
-        <div>
-            <label for="img-input">Picture Link:</label>
-                <input id="img-input" class="input-style" type="url" > 
-        </div>
+    <form type="submit" id="generator">
+      <label for="img-input">Picture Link:</label>
+      <input id="img-input" class="input-style" type="url" />
 
-        <div >
-            <label for="top">Top Text bruh</label>
-                <input id="top" class="input-style" type="text" maxlength="100"> 
-        </div>
+      <label for="top">Top Text bruh</label>
+      <input id="top" class="input-style" type="text" maxlength="100" />
 
-        <div >
-            <label for="bottom">Bottom text bruh</label>
-                <input id="bottom" class="input-style" type="text" maxlength="100"> 
-        </div>
+      <label for="bottom">Bottom text bruh</label>
+      <input id="bottom" class="input-style" type="text" maxlength="100" />
 
-        <div >
-            <label for="text-color">Pick a color bruh</label>
-                <input id="text-color" class="input-style" type="color"> 
-        </div>
-  
-        <button class="button-style" class="input-style" type="submit">Make your spicy meme</button>
+      <label for="text-color">Pick a color bruh</label>
+      <input id="text-color" class="input-style" type="color" />
 
-       
+      <button class="button-style" class="input-style" type="submit">
+        Make your spicy meme
+      </button>
     </form>
 
-    <!-- <div class="gif">
-        <img scr= "https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.webp?cid=ecf05e47g131t8xt25fmkdpzz4vwsvg95tqlrslpc5cjxqdx&rid=giphy.webp&ct=g"  alt="">
-    </div> -->
+    <div id="memes"></div>
+
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
+
+<!-- -event listener on form sub, create new image, set img src, create new canvas, call update meme function with the img, canvas, top&bottom text values
+      - create updated meme canvas function  -->

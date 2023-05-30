@@ -1,79 +1,77 @@
-const form = document.querySelector('#generator');
+const form = document.querySelector("#generator");
 const imgInput = document.querySelector("#img-input");
 const topText = document.querySelector("#top");
 const bottomText = document.querySelector("#bottom");
 const submitBtn = document.querySelector("button");
-const meme = document.getElementById("meme");
+
 const color = document.querySelector("#text-color");
+const memeSection = document.querySelector("#memes");
 
+function addDeleteButton(canvas) {
+  // create divs to place a canvas into and another to place a remove button into
+  let memeDiv = document.createElement("div");
+  let rmvBtn = document.createElement("button");
+  let rmvBtnDiv = document.createElement("div");
+  rmvBtnDiv.append(rmvBtn);
+  rmvBtn.classList.add("rmv-button-style");
+  rmvBtn.innerText = "delete";
+  // only append the picture if it exist
+  if (canvas.width > 0) {
+    memeDiv.append(canvas);
+    memeDiv.append(rmvBtnDiv);
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault()
-    
-  // function to call later in the code that targets all elements in the ".meme" class, then removes the EventListener from the remove button, and then deletes the "item" which is the memeDiv. 
-  function handleRemove(e) {
-    const item = memeDiv;
-    
-    item.querySelector(".button-style").removeEventListener("click", handleRemove);
+    memeSection.append(memeDiv);
+  }
+  // event listener on all remove buttons to delete it and its meme
+  rmvBtn.addEventListener("click", function (e) {
+    let rmvBtnDiv = e.target.parentElement;
+    let memeDiv = rmvBtnDiv.parentElement;
+    rmvBtnDiv.remove();
+    memeDiv.remove();
+  });
+}
 
-    item.parentElement.removeChild(item);
-    
-  };              
- 
-  
-  
-    // image
-    let image = document.createElement("img");
-    image.classList.add('img');
-    image.setAttribute('src', imgInput.value);  
+form.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  // create image
+  let image = new Image();
+  image.src = imgInput.value;
 
-    // text div's
-    let topTextVal = topText.value;
-    let bottomTextVal = bottomText.value;
-    let topDiv = document.createElement("div")
-    let bottomDiv = document.createElement("div")
-    topDiv.append(topTextVal);
-    bottomDiv.append(bottomTextVal);
-        topDiv.style.color = color.value;
-        bottomDiv.style.color = color.value;   
-    
-    topDiv.classList.add("toptext");
-    bottomDiv.classList.add("bottomtext");
+  // create canvas
 
-    const remove = document.createElement("button");
-    remove.innerText = "Remove Meme";
-    remove.classList.add("button-style");
-    
+  let canvas = document.createElement("canvas");
 
+  updateMemeCanvas(image, canvas, topText.value, bottomText.value, color.value);
+  addDeleteButton(canvas);
+});
 
-// appending all. I added my remove button into its own div and then appended that div to the larger div containg the img and text. This was done because if I simply appneded the button alone it would disrupt my CSS by trying to fit the button in with everything else. 
-    
+function updateMemeCanvas(image, canvas, topText, bottomText, textColor) {
+  const ctx = canvas.getContext("2d");
+  const width = image.width;
+  const height = image.height;
 
-    let memeDiv = document.createElement("div");    
-    memeDiv.append(image, topDiv, bottomDiv);
+  // udate canvas background
+  canvas.width = width;
+  canvas.height = height;
+  const fontSize = Math.floor(width / 15);
+  const yOffset = height / 25;
 
-    let rmvDiv = document.createElement('div');
-    rmvDiv.append(remove);
-    memeDiv.append(rmvDiv);
+  ctx.drawImage(image, 0, 0);
+  // prepare text
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = Math.floor(fontSize / 4);
+  ctx.fillStyle = textColor;
+  ctx.textAlign = "center";
+  ctx.lineJoin = "round";
+  ctx.font = `${fontSize}px sans-serif`;
 
-    memeDiv.classList.add('meme')    
+  // add top text
+  ctx.textBaseline = "top";
+  ctx.strokeText(topText, width / 2, yOffset);
+  ctx.fillText(topText, width / 2, yOffset);
 
-    document.body.append(memeDiv);
-
-   
-
-
-remove.addEventListener("click", handleRemove);
-
-
-// clear inputs after submit 
-    form.reset();
-
-})
-
-
-
-
-
-
-
+  // add top text
+  ctx.textBaseline = "bottom";
+  ctx.strokeText(bottomText, width / 2, height - yOffset);
+  ctx.fillText(bottomText, width / 2, height - yOffset);
+}
