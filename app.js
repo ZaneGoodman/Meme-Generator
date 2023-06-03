@@ -39,7 +39,7 @@ function showMessage() {
   successMsg.innerText = "Meme created!";
   successMsg.classList.add("success");
   if (imgInput.value !== "") {
-    if (topText.value !== "") {
+    if (topText.value !== "" || bottomText.value !== "") {
       messages.append(successMsg);
       successMsg.classList.add("fade-out");
     }
@@ -60,10 +60,20 @@ form.addEventListener("submit", (evt) => {
 
   let canvas = document.createElement("canvas");
 
-  updateMemeCanvas(image, canvas, topText.value, bottomText.value, color.value);
-  addDeleteButton(canvas);
+  if (imgInput.value !== "") {
+    if (topText.value !== "" || bottomText.value !== "") {
+      updateMemeCanvas(
+        image,
+        canvas,
+        topText.value,
+        bottomText.value,
+        color.value
+      );
+      addDeleteButton(canvas);
+    }
+  }
   // make sure a meme was actually appended
-  if (canvas.width > 100) {
+  if (canvas.width > 0) {
     showMessage();
   }
 });
