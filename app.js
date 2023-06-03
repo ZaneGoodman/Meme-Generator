@@ -7,6 +7,8 @@ const submitBtn = document.querySelector("button");
 const color = document.querySelector("#text-color");
 const memeSection = document.querySelector("#memes");
 
+const messages = document.querySelector("#messages");
+
 function addDeleteButton(canvas) {
   // create divs to place a canvas into and another to place a remove button into
   let memeDiv = document.createElement("div");
@@ -31,6 +33,23 @@ function addDeleteButton(canvas) {
   });
 }
 
+function showMessage() {
+  // create message and add to message section
+  const successMsg = document.createElement("p");
+  successMsg.innerText = "Meme created!";
+  successMsg.classList.add("success");
+  if (imgInput.value !== "") {
+    if (topText.value !== "") {
+      messages.append(successMsg);
+      successMsg.classList.add("fade-out");
+    }
+  }
+  // delete paragraph after fade out is complete
+  setTimeout(() => {
+    messages.removeChild(successMsg);
+  }, 3000);
+}
+
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
   // create image
@@ -43,6 +62,10 @@ form.addEventListener("submit", (evt) => {
 
   updateMemeCanvas(image, canvas, topText.value, bottomText.value, color.value);
   addDeleteButton(canvas);
+  // make sure a meme was actually appended
+  if (canvas.width > 100) {
+    showMessage();
+  }
 });
 
 function updateMemeCanvas(image, canvas, topText, bottomText, textColor) {

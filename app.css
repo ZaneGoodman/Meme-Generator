@@ -10,7 +10,29 @@ body {
     
 }
 
+#messages {
+    position: fixed;
+    top: 2%;
+    right:5%;
+    width:150px;
+    display: flex;
+    flex-direction: column;
+}
 
+.success {
+    padding: 20px;
+    margin: 10px;
+    width:150px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0, 0.7);
+    color: white;
+    background-color: rgba(145, 234, 138, 0.778);
+    animation: fade-in 1s ease;
+}
+
+.fade-out{
+    animation: fade-out 1s ease 2s forwards;
+}
 
 h1 {
     background-image: url("https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.webp?cid=ecf05e47g131t8xt25fmkdpzz4vwsvg95tqlrslpc5cjxqdx&rid=giphy.webp&ct=g");
@@ -53,22 +75,27 @@ h1 {
 
 #memes {
    
-   margin-right: auto;
-   width: 940px
-   
+   margin-left: auto;
+   margin-right: 150px;
+   width: 900px;
+  
    
 }
 
 #memes div canvas  {
-    width:300px;
-    margin: 10px;
-    margin-left: 10px auto ;
+    width:250px;
+    margin: 10px ;
+    margin-left:auto;
+    margin-right:auto;
+    
+    
     
 }
 
 #memes div {
     display:contents;
-    margin:auto;
+    
+   
 }
 
 
@@ -83,7 +110,7 @@ h1 {
         text-decoration: none;
         display: inline-block;
         font-size: 10px;
-        
+        cursor: pointer;
       }
 .rmv-button-style{
     background-color: grey;
@@ -93,7 +120,26 @@ h1 {
     position: relative;
     right:60px;
     top:5px;
+    cursor: pointer;
     
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 
 
